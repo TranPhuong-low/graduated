@@ -4,6 +4,7 @@ import { doc, onSnapshot, setDoc } from "firebase/firestore";
 import { MapPin, Save, CheckCircle2, XCircle, X } from "lucide-react";
 import { useAdmin } from "../hooks/useAdmin";
 import { motion, AnimatePresence } from "framer-motion";
+import MapImage from "../assets/image.png"
 
 function getVisibleImageRect(imgEl) {
   const rect = imgEl.getBoundingClientRect();
@@ -121,7 +122,7 @@ export default function MapPage() {
           <div ref={mapRef} className="relative group bg-slate-200">
             <img
               ref={imgRef}
-              src="/src/assets/image.png"
+              src={MapImage}
               className={`w-full h-auto block ${isAdmin ? 'cursor-crosshair pointer-events-auto' : 'pointer-events-none'}`}
               onClick={handleMapClick}
               alt="Bản đồ"
