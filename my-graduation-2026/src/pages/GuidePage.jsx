@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../services/firebase";
 import { collection, query, orderBy, onSnapshot, addDoc } from "firebase/firestore";
 import { useAdmin } from "../hooks/useAdmin";
-import { Plus } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import GuideItem from "../components/GuideItem";
 
 export default function GuidePage() {
@@ -41,7 +41,6 @@ export default function GuidePage() {
     <div className="min-h-screen bg-blue-50 p-6 py-24 flex items-start md:items-center justify-center">
       <div className="w-full max-w-2xl">
         
-        {/* Header Khu vực */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
           <h2 className="text-3xl font-bold text-blue-900 flex items-center gap-3">
             <span className="w-10 h-10 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xl shadow-sm">

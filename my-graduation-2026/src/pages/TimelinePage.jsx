@@ -55,14 +55,14 @@ export default function TimelinePage() {
     <div className="min-h-screen bg-[#faf9f6] py-20 px-4 md:px-8 overflow-hidden flex justify-center relative">
       <div className="w-full max-w-3xl relative z-10">
         
-        <div className="flex items-center justify-center mb-16 relative">
+      <div className="flex flex-col md:flex-row items-center justify-center mb-12 md:mb-16 relative gap-5 md:gap-0">
           <motion.h2 
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.5 }}
-            className="text-4xl md:text-5xl font-black text-gray-800 uppercase tracking-wider"
+            className="text-4xl md:text-5xl font-black text-gray-800 uppercase tracking-wider text-center"
           >
             Hành Trình
           </motion.h2>
@@ -70,7 +70,7 @@ export default function TimelinePage() {
           {isAdmin && (
             <button 
               onClick={() => setIsAddModalOpen(true)}
-              className="absolute right-0 bg-slate-800 text-white px-5 py-2.5 rounded-full flex items-center gap-2 hover:scale-105 hover:bg-black transition-all font-bold shadow-md"
+              className="relative md:absolute md:right-0 bg-slate-800 text-white px-5 py-2.5 rounded-full flex items-center gap-2 hover:scale-105 hover:bg-black transition-all font-bold shadow-md"
             >
               <Plus size={20} /> Thêm mốc
             </button>

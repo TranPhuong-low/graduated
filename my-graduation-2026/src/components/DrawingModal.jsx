@@ -7,6 +7,7 @@ export default function DrawingModal({ isOpen, onClose, onSave, strokeColor, set
   const canvasRef = useRef(null);
   const [baseColor, setBaseColor] = useState("#000000");
   const [activeBrush, setActiveBrush] = useState("ink");
+  const [senderName, setSenderName] = useState("");
 
   const hexToRgb = (hex) => {
     const r = parseInt(hex.slice(1, 3), 16);
@@ -47,6 +48,13 @@ export default function DrawingModal({ isOpen, onClose, onSave, strokeColor, set
         <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-red-500"><X size={24} /></button>
         
         <div className="space-y-4">
+        <input 
+            type="text" 
+            placeholder="Tên của bạn..." 
+            value={senderName}
+            onChange={(e) => setSenderName(e.target.value)}
+            className="w-full p-3 border-2 border-gray-200 rounded-xl outline-none focus:border-amber-900"
+          />
           <div className="flex flex-wrap items-center justify-center gap-2 p-3 bg-gray-50 rounded-2xl border border-gray-100">
             <div className="flex gap-1">
               <button title="Bút chì" onClick={() => applyBrushPreset("pencil")} className={`p-2 rounded border ${activeBrush === 'pencil' ? 'bg-blue-100' : ''}`}><Pencil size={20}/></button>
@@ -70,7 +78,7 @@ export default function DrawingModal({ isOpen, onClose, onSave, strokeColor, set
             <ReactSketchCanvas ref={canvasRef} height="300px" width="100%" strokeWidth={strokeWidth} strokeColor={strokeColor} className="border-2 border-gray-200 rounded-xl" />
           </div>
 
-          <button onClick={async () => { const data = await canvasRef.current.exportImage("png"); onSave(data); }} 
+          <button onClick={async () => { const data = await canvasRef.current.exportImage("png"); onSave(data, senderName); }} 
                   className="w-full bg-amber-900 text-white py-3 rounded-full font-bold hover:bg-amber-800 transition-all">Lưu tác phẩm</button>
         </div>
       </div>
