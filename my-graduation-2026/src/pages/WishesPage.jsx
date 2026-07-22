@@ -73,8 +73,8 @@ export default function WishesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fdfaf6] p-6 pb-24">
-      <h2 className="text-4xl font-serif text-center mb-12 text-slate-800 italic">Tranh</h2>
+    <div className="min-h-screen bg-transparent p-6 pb-24">
+      <h2 className="text-center text-3xl md:text-4xl font-black italic uppercase text-[#045596] mb-8 md:mb-12 tracking-tight [text-shadow:3px_3px_0_white] md:[text-shadow:5px_5px_0_white]">Vẽ Tranh</h2>
       
       <BookShelf 
         totalShelves={totalShelves}

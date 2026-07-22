@@ -5,13 +5,13 @@ import { useAdmin } from "../hooks/useAdmin";
 import { Plus, X } from "lucide-react";
 import GuideItem from "../components/GuideItem";
 
+
 export default function GuidePage() {
   const { isAdmin } = useAdmin();
   const [guides, setGuides] = useState([]);
   const [isAddingQuestion, setIsAddingQuestion] = useState(false);
   const [newQuestion, setNewQuestion] = useState("");
 
-  // Tải dữ liệu từ Firestore
   useEffect(() => {
     const q = query(collection(db, "guides"), orderBy("order", "asc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -20,7 +20,6 @@ export default function GuidePage() {
     return () => unsubscribe();
   }, []);
 
-  // Admin thêm câu hỏi mới
   const handleAddQuestion = async (e) => {
     e.preventDefault();
     if (!newQuestion.trim()) return;
@@ -38,14 +37,11 @@ export default function GuidePage() {
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 p-6 py-24 flex items-start md:items-center justify-center">
+    <div className="min-h-screen bg-transparent p-6 py-24 flex items-start md:items-center justify-center">
       <div className="w-full max-w-2xl">
         
-        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-          <h2 className="text-3xl font-bold text-blue-900 flex items-center gap-3">
-            <span className="w-10 h-10 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xl shadow-sm">
-              ?
-            </span>
+        <div className="flex flex-col md:flex-row md:items-center justify-center mb-8 gap-4">
+          <h2 className="text-center text-3xl md:text-4xl font-black italic uppercase text-[#045596] mb-8 md:mb-12 tracking-tight [text-shadow:3px_3px_0_white] md:[text-shadow:5px_5px_0_white]">
             Thông tin cần biết
           </h2>
 

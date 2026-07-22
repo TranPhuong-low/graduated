@@ -52,7 +52,7 @@ export default function TimelinePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9f6] py-20 px-4 md:px-8 overflow-hidden flex justify-center relative">
+    <div className="min-h-screen bg-transparent py-20 px-4 md:px-8 overflow-hidden flex justify-center relative">
       <div className="w-full max-w-3xl relative z-10">
         
       <div className="flex flex-col md:flex-row items-center justify-center mb-12 md:mb-16 relative gap-5 md:gap-0">
@@ -62,9 +62,9 @@ export default function TimelinePage() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.5 }}
-            className="text-4xl md:text-5xl font-black text-gray-800 uppercase tracking-wider text-center"
+            className="text-center text-3xl md:text-4xl font-black italic uppercase text-[#045596] mb-8 md:mb-12 tracking-tight [text-shadow:3px_3px_0_white] md:[text-shadow:5px_5px_0_white]"
           >
-            Hành Trình
+            Thời gian
           </motion.h2>
           
           {isAdmin && (
