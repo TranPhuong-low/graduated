@@ -3,6 +3,13 @@ import { motion } from "framer-motion";
 import { Plus, LogIn } from "lucide-react";
 import { useAdmin } from "../hooks/useAdmin";
 
+import mainPic from "../assets/mainpic.png";
+import pic1 from "../assets/pic1.png";
+import pic2 from "../assets/pic2.png"
+import Background from "../assets/image.png"
+import Info from "../assets/info.png"
+
+
 const TornPaperFilter = () => (
   <svg className="absolute w-0 h-0 pointer-events-none">
     <filter id="torn-edge">
@@ -13,17 +20,24 @@ const TornPaperFilter = () => (
 );
 
 const initialScrapbook = [
-  { 
-    id: 1, type: "text", content: "Graduation 2026!", 
-    x: -150, y: -250, width: "auto",
+  {
+    id: 0, type: "text", content: "Xin phép thân mời gia đình, anh chị em, bạn bè yêu thương của Phương đến tham dự", 
+    x: 150, y: 250, width: "auto",
     mx: 0, my: -240, mWidth: "auto",
-    rotate: -5, className: "text-5xl md:text-[5rem] font-['Nothing_You_Could_Do'] text-gray-900 whitespace-nowrap" 
+    rotate: 0, className: "text-center text-[10px] md:text-1xl font-black italic text-[#045596] mb-8 md:mb-12"
+
   },
   { 
-    id: 2, type: "text", content: "Here are a few of my favorite moments...", 
+    id: 1, type: "text", content: "Lễ Tốt Nghiệp", 
+    x: -150, y: -250, width: "auto",
+    mx: 0, my: -240, mWidth: "auto",
+    rotate: 0, className: "text-center text-3xl md:text-4xl font-black italic uppercase text-[#045596] mb-8 md:mb-12 tracking-tight [text-shadow:3px_3px_0_white] md:[text-shadow:5px_5px_0_white]" 
+  },
+  { 
+    id: 2, type: "text", content: "Graduation Ceremory", 
     x: -280, y: -100, width: 250,
     mx: 0, my: -160, mWidth: 220,
-    rotate: -2, className: "text-2xl md:text-3xl font-['Caveat'] text-gray-800 leading-tight" 
+    rotate: -2, className: "text-center text-[10px] md:text-1xl font-black italic text-[#045596] mb-8 md:mb-12" 
   },
   { 
     id: 3, type: "polaroid", src: "", caption: "IT Engineer", 
@@ -32,13 +46,13 @@ const initialScrapbook = [
     rotate: 4 
   },
   { 
-    id: 4, type: "polaroid", src: "", caption: "With besties", 
+    id: 4, type: "polaroid", src: mainPic, caption: "With besties", 
     x: 300, y: -50, width: 240,
     mx: 50, my: 60, mWidth: 180,
     rotate: -3 
   },
   { 
-    id: 5, type: "object", src: "/src/assets/lotus.png", 
+    id: 5, type: "object", src: mainPic, 
     x: -250, y: 100, width: 180,
     mx: -80, my: 130, mWidth: 130,
     rotate: -15 
@@ -50,11 +64,23 @@ const initialScrapbook = [
     rotate: 6 
   },
   { 
-    id: 7, type: "magazine", src: "", 
+    id: 7, type: "magazine", src: pic1, 
     x: 250, y: 180, width: 280,
     mx: 0, my: 320, mWidth: 220,
     rotate: -8 
   },
+  { 
+    id: 8, type: "object", src: Info, 
+    x: -250, y: 100, width: 180,
+    mx: -80, my: 130, mWidth: 130,
+    rotate: 0
+  }, 
+  { 
+    id: 9, type: "object", src: pic2, 
+    x: -250, y: 100, width: 180,
+    mx: -80, my: 130, mWidth: 130,
+    rotate: 0
+  }, 
 ];
 
 export default function CollagePage() {
@@ -73,10 +99,11 @@ export default function CollagePage() {
   }, []);
 
   return (
-    <div className="relative w-full h-dvh overflow-hidden flex items-center justify-center bg-[#f2eee3]">
+    <div 
+      className="relative w-full h-dvh overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat"
+    >
       <TornPaperFilter />
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] mix-blend-multiply"></div>
-
+      
       {/* Nút Admin */}
       <div className="absolute top-6 right-6 md:top-10 md:right-10 z-50">
         {!isAdmin ? (

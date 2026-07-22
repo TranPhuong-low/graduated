@@ -11,8 +11,8 @@ export default function TimelineItem({ id, time, title, index, isAdmin, onDelete
       transition={{ type: "spring", stiffness: 100, delay: index * 0.15 }}
       className="relative flex items-center w-full min-h-20 md:min-h-24 z-10"
     >
-      <div className="absolute left-0 w-20 h-20 md:w-24 md:h-24 bg-[#fa5a5a] rounded-full border border-black flex items-center justify-center shadow-sm shrink-0 z-20">
-        <span className="font-medium text-black text-xs md:text-sm text-center px-2 wrap-break-word">
+      <div className="absolute left-0 w-20 h-20 md:w-24 md:h-24 bg-[#045596] rounded-full border border-black flex items-center justify-center shadow-sm shrink-0 z-20">
+        <span className="font-medium text-white text-xs md:text-sm text-center px-2 wrap-break-word">
           {time}
         </span>
       </div>

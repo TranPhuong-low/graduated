@@ -4,7 +4,7 @@ import { doc, onSnapshot, setDoc } from "firebase/firestore";
 import { MapPin, Save, CheckCircle2, XCircle, X } from "lucide-react";
 import { useAdmin } from "../hooks/useAdmin";
 import { motion, AnimatePresence } from "framer-motion";
-import MapImage from "../assets/image.png"
+import MapImage from "../assets/map.png"
 
 function getVisibleImageRect(imgEl) {
   const rect = imgEl.getBoundingClientRect();
@@ -107,10 +107,10 @@ export default function MapPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-24 p-6 flex flex-col justify-center">
+    <div className="min-h-screen bg-transparent pb-24 p-6 flex flex-col justify-center">
       <div className="max-w-4xl mx-auto w-full space-y-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-slate-800">Vị Trí Buổi Lễ</h2>
+          <h2 className="text-center text-3xl md:text-4xl font-black italic uppercase text-[#045596] mb-8 md:mb-12 tracking-tight [text-shadow:3px_3px_0_white] md:[text-shadow:5px_5px_0_white]">Vị Trí Buổi Lễ</h2>
           <p className="text-slate-500 mt-2">Theo dõi vị trí hiện tại của chủ nhân buổi lễ</p>
         </div>
 

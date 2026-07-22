@@ -68,7 +68,7 @@ function ShelfSlot({ slotId, shelfIndex, className, wishes, onOpenAdd, onSelectB
   const getBookColor = (id) => {
     const colors = [
       "bg-red-700 border-red-950", "bg-blue-700 border-blue-950", "bg-emerald-700 border-emerald-950",
-      "bg-amber-500 border-amber-700", "bg-purple-700 border-purple-950", "bg-rose-600 border-rose-900",
+      "bg-amber-500 border-amber-700", "bg-rose-600 border-rose-900",
       "bg-cyan-700 border-cyan-950", "bg-indigo-700 border-indigo-950", "bg-teal-700 border-teal-950",
     ];
     let hash = 0;
@@ -92,7 +92,7 @@ function ShelfSlot({ slotId, shelfIndex, className, wishes, onOpenAdd, onSelectB
             key={w.id}
             whileHover={{ y: -10, scale: 1.05 }}
             onClick={() => onSelectBook(w)}
-            className={`shrink-0 w-8 sm:w-10 h-[85%] max-h-32 min-h-[60px] ${getBookColor(w.id)} border-r-4 shadow-xl flex items-center justify-center cursor-pointer transition-all`}
+            className={`shrink-0 w-8 sm:w-10 h-[85%] max-h-32 min-h-15 ${getBookColor(w.id)} border-r-4 shadow-xl flex items-center justify-center cursor-pointer transition-all`}
           >
             <span className="text-white text-[8px] sm:text-[10px] font-bold rotate-90 whitespace-nowrap tracking-widest">
               {w.sender || "Ẩn danh"}
@@ -102,7 +102,7 @@ function ShelfSlot({ slotId, shelfIndex, className, wishes, onOpenAdd, onSelectB
 
         <button 
           onClick={handleAddClick}
-          className={`shrink-0 w-8 sm:w-10 h-[85%] max-h-32 min-h-[60px] border-2 border-dashed bg-transparent flex items-center justify-center transition-all ${isFull ? 'border-red-900/40 text-red-900/40 cursor-not-allowed bg-red-900/5' : 'border-amber-900/40 text-amber-900/40 hover:bg-amber-900/10 hover:border-amber-900/70 cursor-pointer'}`}
+          className={`shrink-0 w-8 sm:w-10 h-[85%] max-h-32 min-h-15 border-2 border-dashed bg-transparent flex items-center justify-center transition-all ${isFull ? 'border-red-900/40 text-red-900/40 cursor-not-allowed bg-red-900/5' : 'border-amber-900/40 text-amber-900/40 hover:bg-amber-900/10 hover:border-amber-900/70 cursor-pointer'}`}
           title={isFull ? "Đã đầy" : "Thêm tranh vào ngăn này"}
         >
           <span className={`font-bold ${isFull ? 'text-[10px] rotate-90 whitespace-nowrap' : 'text-xl'}`}>{isFull ? "ĐÃ ĐẦY" : "+"}</span>
