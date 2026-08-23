@@ -8,6 +8,8 @@ export default function DrawingModal({ isOpen, onClose, onSave, strokeColor, set
   const [baseColor, setBaseColor] = useState("#000000");
   const [activeBrush, setActiveBrush] = useState("ink");
   const [senderName, setSenderName] = useState("");
+  // Thêm state để chặn click nhiều lần
+  const [isSaving, setIsSaving] = useState(false);
 
   const hexToRgb = (hex) => {
     const r = parseInt(hex.slice(1, 3), 16);
@@ -39,6 +41,20 @@ export default function DrawingModal({ isOpen, onClose, onSave, strokeColor, set
     const newColor = e.target.value;
     setBaseColor(newColor);
     applyBrushPreset(activeBrush);
+  };
+
+  const handleSave = async () => {
+    if (isSaving) return; 
+    setIsSaving(true);
+    
+    try {
+      const data = await canvasRef.current.exportImage("png");
+      await onSave(data, senderName);
+    } catch (error) {
+      console.error("Lỗi khi lưu ảnh:", error);
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -78,8 +94,16 @@ export default function DrawingModal({ isOpen, onClose, onSave, strokeColor, set
             <ReactSketchCanvas ref={canvasRef} height="300px" width="100%" strokeWidth={strokeWidth} strokeColor={strokeColor} className="border-2 border-gray-200 rounded-xl" />
           </div>
 
-          <button onClick={async () => { const data = await canvasRef.current.exportImage("png"); onSave(data, senderName); }} 
-                  className="w-full bg-amber-900 text-white py-3 rounded-full font-bold hover:bg-amber-800 transition-all">Lưu tác phẩm</button>
+          {/* Nút lưu được cập nhật trạng thái */}
+          <button 
+            onClick={handleSave} 
+            disabled={isSaving}
+            className={`w-full text-white py-3 rounded-full font-bold transition-all ${
+              isSaving ? "bg-gray-400 cursor-not-allowed" : "bg-amber-900 hover:bg-amber-800"
+            }`}
+          >
+            {isSaving ? "Đang lưu..." : "Lưu tác phẩm"}
+          </button>
         </div>
       </div>
     </motion.div>

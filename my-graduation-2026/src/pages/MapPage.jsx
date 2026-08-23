@@ -113,10 +113,10 @@ export default function MapPage() {
           <h2 className="text-center text-3xl md:text-4xl font-black italic uppercase text-[#045596] mb-8 md:mb-12 tracking-tight [text-shadow:3px_3px_0_white] md:[text-shadow:5px_5px_0_white]">Vị Trí Buổi Lễ</h2>
           <p className="text-slate-500 mt-2">Theo dõi vị trí hiện tại của chủ nhân buổi lễ</p>
         </div>
-
+{/* 
         <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
           <iframe className="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Guide" />
-        </div>
+        </div> */}
 
         <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
           <div ref={mapRef} className="relative group bg-slate-200">

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function BookShelf({ totalShelves = 1, wishes, onOpenAdd, onSelectBook }) {
   return (
     <div className="w-full max-w-6xl mx-auto p-4 py-8">
-      <div className="p-3 bg-[#8b4513] border-8 md:border-12 border-[#6b340c] rounded-sm shadow-2xl flex flex-col gap-4">
+      <div className="p-3 bg-[white] border-8 md:border-12 border-[#045596] rounded-sm shadow-2xl flex flex-col gap-4">
         
         {Array.from({ length: totalShelves }).map((_, shelfIndex) => (
           <React.Fragment key={shelfIndex}>
@@ -16,7 +16,7 @@ export default function BookShelf({ totalShelves = 1, wishes, onOpenAdd, onSelec
               </div>
             )}
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex flex-col gap-3 h-[600px] md:h-[800px]">
                 <ShelfSlot slotId="L1" shelfIndex={shelfIndex} className="flex-[1.2]" wishes={wishes} onOpenAdd={onOpenAdd} onSelectBook={onSelectBook} />
                 <ShelfSlot slotId="L2" shelfIndex={shelfIndex} className="flex-[0.8]" wishes={wishes} onOpenAdd={onOpenAdd} onSelectBook={onSelectBook} />
@@ -40,7 +40,7 @@ export default function BookShelf({ totalShelves = 1, wishes, onOpenAdd, onSelec
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3 h-[600px] md:h-[800px]">
+              {/* <div className="flex flex-col gap-3 h-[600px] md:h-[800px]">
                 <div className="flex gap-3 flex-1">
                   <ShelfSlot slotId="R1a" shelfIndex={shelfIndex} className="flex-1" wishes={wishes} onOpenAdd={onOpenAdd} onSelectBook={onSelectBook} />
                   <ShelfSlot slotId="R1b" shelfIndex={shelfIndex} className="flex-[0.6]" wishes={wishes} onOpenAdd={onOpenAdd} onSelectBook={onSelectBook} />
@@ -51,7 +51,7 @@ export default function BookShelf({ totalShelves = 1, wishes, onOpenAdd, onSelec
                   <ShelfSlot slotId="R4a" shelfIndex={shelfIndex} className="flex-1" wishes={wishes} onOpenAdd={onOpenAdd} onSelectBook={onSelectBook} />
                   <ShelfSlot slotId="R4b" shelfIndex={shelfIndex} className="flex-[0.5]" wishes={wishes} onOpenAdd={onOpenAdd} onSelectBook={onSelectBook} />
                 </div>
-              </div>
+              </div> */}
             </div>
           </React.Fragment>
         ))}

@@ -3,13 +3,10 @@ import { motion } from "framer-motion";
 import { LogIn } from "lucide-react";
 import { useAdmin } from "../hooks/useAdmin";
 
-import mainPic from "../assets/mainpic.png";
-import pic1 from "../assets/pic1.png";
-import pic2 from "../assets/pic2.png";
-import pic3 from "../assets/pic3.png";
-import pic4 from "../assets/pic4.png";
-import pic5 from "../assets/pic5.png";
-import Info from "../assets/info.png";
+import pic1 from "../assets/01.png";
+import pic2 from "../assets/02.png";
+import pic3 from "../assets/03.png";
+import pic4 from "../assets/04.png";
 
 const TornPaperFilter = () => (
   <svg className="absolute w-0 h-0 pointer-events-none">
@@ -20,17 +17,13 @@ const TornPaperFilter = () => (
   </svg>
 );
 
-const initialScrapbook = [
-  { id: 0, type: "object", src: mainPic, x: 220, y: -230, width: 380, mx: 48, my: -190, mWidth: 280, rotate: 0 },
-  { id: 1, type: "object", src: Info, x: -4, y: -167, width: 680, mx: 4, my: -160, mWidth: 340, rotate: 0 }, 
-  { id: 2, type: "object", src: pic2, x: -260, y: 72, width: 140, mx: -143, my: 0, mWidth: 80, rotate: 0 }, 
-  { id: 3, type: "object", src: pic3, x: -70, y: 72, width: 140, mx: -41, my: 0, mWidth: 80, rotate: 0 }, 
-  { id: 4, type: "object", src: pic4, x: 120, y: 72, width: 140, mx: 55, my: 0, mWidth: 80, rotate: 0 }, 
-  { id: 5, type: "object", src: pic1, x: -165, y: 245, width: 370, mx: 4, my: 180, mWidth: 340, rotate: 0 },
-  { id: 6, type: "object", src: pic5, x: 290, y: 72, width: 140, mx: 154, my: 0, mWidth: 80, rotate: 0 }
+export const initialScrapbook = [
+  { id: 2, type: "object", src: pic2, x: 290, y: -130, width: 610, mx: 0, my: 0, mWidth: 340, rotate: 0 }, 
+  { id: 3, type: "object", src: pic3, x: -360, y: -34, width: 650, mx: 0, my: -229, mWidth: 340, rotate: 0 }, 
+  { id: 4, type: "object", src: pic4, x: 70, y: 89, width: 170, mx: -120, my: 162, mWidth: 80, rotate: 0 }, 
+  { id: 5, type: "object", src: pic1, x: 360, y: 60, width: 470, mx: 44, my: 126, mWidth: 240, rotate: 0 },
 ];
 
-// Component hiển thị ảnh cố định
 const StaticObject = ({ item, isMobile, index }) => {
   const targetX = isMobile ? item.mx : item.x;
   const targetY = isMobile ? item.my : item.y;
@@ -38,7 +31,7 @@ const StaticObject = ({ item, isMobile, index }) => {
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05, zIndex: 100 }} // Vẫn cho phép nổi lên khi hover
+      whileHover={{ scale: 1.05, zIndex: 100 }}
       initial={{ opacity: 0, x: targetX, y: targetY + 100, rotate: item.rotate - 10 }}
       animate={{ opacity: 1, x: targetX, y: targetY, rotate: item.rotate }}
       style={{ width: targetWidth, zIndex: index }} 
@@ -88,7 +81,6 @@ export default function CollagePage() {
         )}
       </div>
 
-      {/* Vùng Canvas */}
       <div 
         ref={containerRef} 
         className="relative w-full h-[85vh] max-w-6xl flex items-center justify-center z-20"
